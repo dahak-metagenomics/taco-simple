@@ -1,0 +1,59 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "taco-simple\n\n\nA taco workflow repo to illustrate simple \"hello world\" workflow definitions. \n\n\nThis repository implements simple \"Hello World\" \nSnakemake rules to define a \ndahak-taco\n\nworkflow.\n\n\nQuick Start\n\n\nList Available Actions\n\n\ntaco ls             # List available workflows\n\ntaco ls workflow1   # List rules in workflow 1\n\ntaco ls workflow2   # List rules in workflow 2\n\n\n\n\nRun Workflow\n\n\nInclude the \n-n\n flag to do a dry run first.\nInclude the \n--config-json\n and \n--params-json\n \nflags to point taco to the configuration and parameter\nJSON/YAML files.\n\n\ntaco -n workflow1 \\\n    --config-json=workflow-config/workflow_1_config.json \\\n    --params-json=workflow-params/workflow_1_params.json\n\n\n\n\nTo run the workflow:\n\n\ntaco workflow1 \\\n    --config-json=workflow-config/workflow_1_config.json \\\n    --params-json=workflow-params/workflow_1_params.json\n\n\n\n\nDetails\n\n\nrules/\n Directory\n\n\nThe rules directory contains one folder per workflow.\n\n\nEach workflow folder must include a \nSnakefile\n.\nIt is recommended to structure Snakefiles so that \nthey import individual rule files. Individual rule\nfiles then use workflow parameters from the parameters\nfile the user passed in.\n\n\nworkflow-config\n Directory\n\n\nThe config files define the target files or rules for Snakemake to run.\n\n\nworkflow-params\n Directory\n\n\nThe parameter files define values for the workflow parameters \nused to define the Snakemake rules.\n\n\nLinks\n\n\ndahak-taco documentation\n\n\ndahak-taco github repo\n\n\ntaco-simple github repo\n\n\nLicense\n\n\nBSD 3-Clause License\n\n\nCopyright (c) 2018, Charles Reid\nAll rights reserved.\n\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:\n\n\n\n\n\n\nRedistributions of source code must retain the above copyright notice, this\n  list of conditions and the following disclaimer.\n\n\n\n\n\n\nRedistributions in binary form must reproduce the above copyright notice,\n  this list of conditions and the following disclaimer in the documentation\n  and/or other materials provided with the distribution.\n\n\n\n\n\n\nNeither the name of the copyright holder nor the names of its\n  contributors may be used to endorse or promote products derived from\n  this software without specific prior written permission.\n\n\n\n\n\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.",
+            "title": "Index"
+        },
+        {
+            "location": "/#taco-simple",
+            "text": "A taco workflow repo to illustrate simple \"hello world\" workflow definitions.   This repository implements simple \"Hello World\" \nSnakemake rules to define a  dahak-taco \nworkflow.",
+            "title": "taco-simple"
+        },
+        {
+            "location": "/#quick-start",
+            "text": "",
+            "title": "Quick Start"
+        },
+        {
+            "location": "/#list-available-actions",
+            "text": "taco ls             # List available workflows\n\ntaco ls workflow1   # List rules in workflow 1\n\ntaco ls workflow2   # List rules in workflow 2",
+            "title": "List Available Actions"
+        },
+        {
+            "location": "/#run-workflow",
+            "text": "Include the  -n  flag to do a dry run first.\nInclude the  --config-json  and  --params-json  \nflags to point taco to the configuration and parameter\nJSON/YAML files.  taco -n workflow1 \\\n    --config-json=workflow-config/workflow_1_config.json \\\n    --params-json=workflow-params/workflow_1_params.json  To run the workflow:  taco workflow1 \\\n    --config-json=workflow-config/workflow_1_config.json \\\n    --params-json=workflow-params/workflow_1_params.json",
+            "title": "Run Workflow"
+        },
+        {
+            "location": "/#details",
+            "text": "",
+            "title": "Details"
+        },
+        {
+            "location": "/#rules-directory",
+            "text": "The rules directory contains one folder per workflow.  Each workflow folder must include a  Snakefile .\nIt is recommended to structure Snakefiles so that \nthey import individual rule files. Individual rule\nfiles then use workflow parameters from the parameters\nfile the user passed in.",
+            "title": "rules/ Directory"
+        },
+        {
+            "location": "/#workflow-config-directory",
+            "text": "The config files define the target files or rules for Snakemake to run.",
+            "title": "workflow-config Directory"
+        },
+        {
+            "location": "/#workflow-params-directory",
+            "text": "The parameter files define values for the workflow parameters \nused to define the Snakemake rules.",
+            "title": "workflow-params Directory"
+        },
+        {
+            "location": "/#links",
+            "text": "dahak-taco documentation  dahak-taco github repo  taco-simple github repo",
+            "title": "Links"
+        },
+        {
+            "location": "/#license",
+            "text": "BSD 3-Clause License  Copyright (c) 2018, Charles Reid\nAll rights reserved.  Redistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:    Redistributions of source code must retain the above copyright notice, this\n  list of conditions and the following disclaimer.    Redistributions in binary form must reproduce the above copyright notice,\n  this list of conditions and the following disclaimer in the documentation\n  and/or other materials provided with the distribution.    Neither the name of the copyright holder nor the names of its\n  contributors may be used to endorse or promote products derived from\n  this software without specific prior written permission.    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.",
+            "title": "License"
+        }
+    ]
+}
