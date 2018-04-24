@@ -1,0 +1,27 @@
+name = config['name']
+
+rule rulename1:
+    """
+    Ask Snakemake to say hello to <name>
+    """
+    input:
+        "hello.txt"
+
+rule target1:
+    """
+    Shell commands to say hello to <name>
+    """
+     output:
+        "hello.txt"
+     shell:
+        "echo hello {name} > {output}"
+
+rule target2:
+    """
+    Shell commands to say goodbye to <name>
+    """
+     output:
+        "goodbye.txt"
+     shell:
+        "echo goodbye {name} > {output}"
+
