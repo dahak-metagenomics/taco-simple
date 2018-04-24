@@ -1,2 +1,3 @@
 # taco-simple
-A simple workflow to illustrate how to organize a taco workflow repository.
+
+ A taco workflow repo to illustrate simple "hello world" workflow definitions. 
