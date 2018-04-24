@@ -1,0 +1,36 @@
+site_name: dahak-taco
+site_url: https://dahak-metagenomics.github.io/taco-simple
+repo_name: dahak-metagenomics/taco-simple
+repo_url: https://github.com/dahak-metagenomics/taco-simple
+edit_uri: ""
+
+# change diirectory names here
+docs_dir: docs
+site_dir: site
+
+theme:
+
+  # the next 2 lines are required to use the DIB version
+  name: null
+  custom_dir: 'mkdocs-material-dib/material'
+
+  # pretty colors! see https://squidfunk.github.io/mkdocs-material/getting-started/#primary-colors
+  palette:
+    primary: 'green'
+    accent: 'green'
+  
+  # fun logos! see https://material.io/icons/
+  logo:
+    icon: 'dns'
+
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+# this will add docs/css/custom.css to all your docs
+extra_css:
+  - css/custom.css
+
+# give a title for each page
+pages:
+  - 'Index' : 'index.md'
