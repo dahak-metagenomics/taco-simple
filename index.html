@@ -282,53 +282,69 @@
               
                 
                 
-                <h1 id="taco-simple">taco-simple</h1>
+                <h1 id="taco-simple">taco-simple<a class="headerlink" href="#taco-simple" title="Permanent link">&para;</a></h1>
 <p>This repository implements several simple Snakemake workflows
 ("hello world" style) to illustrate how to define a 
 <a href="https://github.com/dahak-metagenomics/dahak-taco">dahak-taco</a>
 workflow.</p>
-<h1 id="quick-start">Quick Start</h1>
-<h2 id="list-available-actions">List Available Actions</h2>
-<pre><code>taco ls             # List available workflows
+<h1 id="setting-up-taco">Setting Up Taco<a class="headerlink" href="#setting-up-taco" title="Permanent link">&para;</a></h1>
+<p>Before you can run any of these workflows, you must first 
+install taco. See <a href="https://dahak-metagenomics.github.io/dahak-taco">dahak-taco documentation</a>
+for installation instructions. (Should be as simple as
+<code>python setup.py install</code>.)</p>
+<p>Once taco is installed, it will be available on the 
+command line. The commands covered in this document
+should be run from the top level directory in 
+this repository.</p>
+<h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
+<h2 id="list-available-actions">List Available Actions<a class="headerlink" href="#list-available-actions" title="Permanent link">&para;</a></h2>
+<p>List the available workflows and rules 
+defined by the rule files for each 
+taco-simple workflow.</p>
+<div class="codehilite"><pre><span></span>taco ls             # List available workflows
 
 taco ls workflow1   # List rules in workflow 1
 
 taco ls workflow2   # List rules in workflow 2
-</code></pre>
+</pre></div>
 
-<h2 id="run-workflow">Run Workflow</h2>
+
+<h2 id="run-workflow">Run Workflow<a class="headerlink" href="#run-workflow" title="Permanent link">&para;</a></h2>
 <p>Include the <code>-n</code> flag to do a dry run first.</p>
 <p>taco requires the <code>--config-json</code> and <code>--params-json</code> 
 flags to point to the configuration and parameter
 JSON/YAML files.</p>
-<pre><code>taco -n workflow1 \
+<div class="codehilite"><pre><span></span>taco -n workflow1 \
     --config-json=workflow-config/workflow_1_config.json \
     --params-json=workflow-params/workflow_1_params.json
-</code></pre>
+</pre></div>
+
 
 <p>To run the workflow:</p>
-<pre><code>taco workflow1 \
+<div class="codehilite"><pre><span></span>taco workflow1 \
     --config-json=workflow-config/workflow_1_config.json \
     --params-json=workflow-params/workflow_1_params.json
-</code></pre>
+</pre></div>
 
-<h1 id="details">Details</h1>
-<h2 id="rules-directory"><code>rules/</code> Directory</h2>
+
+<h1 id="details">Details<a class="headerlink" href="#details" title="Permanent link">&para;</a></h1>
+<h2 id="rules-directory"><code>rules/</code> Directory<a class="headerlink" href="#rules-directory" title="Permanent link">&para;</a></h2>
 <p>The rules directory contains one folder per workflow.</p>
 <p>Each workflow folder must include a <code>Snakefile</code>.
 It is recommended to structure Snakefiles so that 
 they import individual rule files. Individual rule
-files then use workflow parameters from the parameters
-file the user passed in.</p>
-<h2 id="workflow-config-directory"><code>workflow-config</code> Directory</h2>
+files will use workflow parameters from the user's
+parameters file. If no parameter is defined, the default
+value, defined in the workflow's <code>*.settins</code> file, 
+will be used instead.</p>
+<h2 id="workflow-config-directory"><code>workflow-config</code> Directory<a class="headerlink" href="#workflow-config-directory" title="Permanent link">&para;</a></h2>
 <p>The config files define the target files or rules for Snakemake to run.</p>
-<h2 id="workflow-params-directory"><code>workflow-params</code> Directory</h2>
+<h2 id="workflow-params-directory"><code>workflow-params</code> Directory<a class="headerlink" href="#workflow-params-directory" title="Permanent link">&para;</a></h2>
 <p>The parameter files define values for the workflow parameters 
 used to define the Snakemake rules.</p>
-<h1 id="links">Links</h1>
+<h1 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h1>
 <p><a href="https://dahak-metagenomics.github.io/dahak-taco/">dahak-taco documentation</a></p>
 <p><a href="https://github.com/dahak-metagenomics/dahak-taco">dahak-taco github repo</a></p>
-<p><a href="https://github.com/dahak-metagenomics/taco-simple">taco-simple github repo</a></p>
                 
                   
                 
