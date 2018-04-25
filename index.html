@@ -328,15 +328,16 @@ JSON/YAML files.</p>
 
 
 <h1 id="details">Details<a class="headerlink" href="#details" title="Permanent link">&para;</a></h1>
-<h2 id="rules-directory"><code>rules/</code> Directory<a class="headerlink" href="#rules-directory" title="Permanent link">&para;</a></h2>
+<h2 id="directory-rules">Directory <code>rules/</code><a class="headerlink" href="#directory-rules" title="Permanent link">&para;</a></h2>
 <p>The rules directory contains one folder per workflow.</p>
 <p>Each workflow folder must include a <code>Snakefile</code>.
 It is recommended to structure Snakefiles so that 
-they import individual rule files. Individual rule
-files will use workflow parameters from the user's
-parameters file. If no parameter is defined, the default
-value, defined in the workflow's <code>*.settins</code> file, 
-will be used instead.</p>
+they import individual rule files. </p>
+<p>Individual rule files assemble rules using workflow 
+parameters. These parameters will come from the 
+user-defined parameters file. If no parameters value
+is defined, the default value will be used from the 
+workflow <code>*.settings</code> file.</p>
 <h2 id="workflow-config-directory"><code>workflow-config</code> Directory<a class="headerlink" href="#workflow-config-directory" title="Permanent link">&para;</a></h2>
 <p>The config files define the target files or rules for Snakemake to run.</p>
 <h2 id="workflow-params-directory"><code>workflow-params</code> Directory<a class="headerlink" href="#workflow-params-directory" title="Permanent link">&para;</a></h2>
