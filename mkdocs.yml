@@ -1,10 +1,12 @@
-site_name: dahak-taco
+site_name: taco-simple
 site_url: https://dahak-metagenomics.github.io/taco-simple
-repo_name: dahak-metagenomics/taco-simple
+repo_name: taco-simple
 repo_url: https://github.com/dahak-metagenomics/taco-simple
 edit_uri: ""
 
-# change diirectory names here
+copyright: 'Copyright &copy; 2018 <a href="http://ivory.idyll.org/lab/">Lab for Data Intensive Biology</a> at UC Davis'
+
+# change directory names here
 docs_dir: docs
 site_dir: site
 
@@ -16,12 +18,12 @@ theme:
 
   # pretty colors! see https://squidfunk.github.io/mkdocs-material/getting-started/#primary-colors
   palette:
-    primary: 'green'
-    accent: 'green'
+    primary: 'blue'
+    accent: 'blue'
   
   # fun logos! see https://material.io/icons/
   logo:
-    icon: 'dns'
+    icon: 'group_work'
 
   font:
     text: 'Roboto'
@@ -34,3 +36,11 @@ extra_css:
 # give a title for each page
 pages:
   - 'Index' : 'index.md'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
