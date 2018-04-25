@@ -1,0 +1,11 @@
+from snakemake.utils import update_config
+
+if(not config['clean']):
+
+    config_default = {
+        "name" : "buzz",
+        "ext"  : "dat"
+    }
+
+    update_config(config_default, config)
+    config = config_default

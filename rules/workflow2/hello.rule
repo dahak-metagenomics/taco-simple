@@ -1,0 +1,13 @@
+# We need to do preprocessing
+# to construct the right output file
+
+hello_file   = "hello.txt"
+
+rule hello_target:
+    """
+    Shell commands to say hello to <name>
+    """
+     output:
+        "hello.txt"
+     shell:
+        "echo hello {name} > {output}"
