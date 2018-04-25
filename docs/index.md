@@ -59,7 +59,42 @@ taco workflow1 \
 
 
 
-# Details
+# Taco Workflows In-Depth
+
+
+## Running a Workflow
+
+If you are using an existing workflow (more common), 
+you will need to set the following:
+
+* Create a workflow configuration file
+* Create a workflow parameters file
+
+The config file specifies the name of any target files 
+or rules that taco should run.
+
+The params file specifies the value of any variable that is 
+used when performing the workflow. 
+
+
+## Defining a New Workflow
+
+If you are defining a new workflow (less common), 
+you will need to do the following:
+
+* Create a folder and Snakefile for your workflow
+* Create workflow rules files
+* Create workflow settings file
+
+Once this is complete, you should be able to proceed
+to the "Running a Workflow" section above.
+
+[Writing Rule Files](#) - how to define rules for a taco workflow
+
+[Writing Settings Files](#) - how to define default parameter values for a taco workflow.
+
+
+
 
 ## Directory `rules/` 
 
