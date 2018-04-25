@@ -327,7 +327,30 @@ JSON/YAML files.</p>
 </pre></div>
 
 
-<h1 id="details">Details<a class="headerlink" href="#details" title="Permanent link">&para;</a></h1>
+<h1 id="taco-workflows-in-depth">Taco Workflows In-Depth<a class="headerlink" href="#taco-workflows-in-depth" title="Permanent link">&para;</a></h1>
+<h2 id="running-a-workflow">Running a Workflow<a class="headerlink" href="#running-a-workflow" title="Permanent link">&para;</a></h2>
+<p>If you are using an existing workflow (more common), 
+you will need to set the following:</p>
+<ul>
+<li>Create a workflow configuration file</li>
+<li>Create a workflow parameters file</li>
+</ul>
+<p>The config file specifies the name of any target files 
+or rules that taco should run.</p>
+<p>The params file specifies the value of any variable that is 
+used when performing the workflow. </p>
+<h2 id="defining-a-new-workflow">Defining a New Workflow<a class="headerlink" href="#defining-a-new-workflow" title="Permanent link">&para;</a></h2>
+<p>If you are defining a new workflow (less common), 
+you will need to do the following:</p>
+<ul>
+<li>Create a folder and Snakefile for your workflow</li>
+<li>Create workflow rules files</li>
+<li>Create workflow settings file</li>
+</ul>
+<p>Once this is complete, you should be able to proceed
+to the "Running a Workflow" section above.</p>
+<p><a href="#">Writing Rule Files</a> - how to define rules for a taco workflow</p>
+<p><a href="#">Writing Settings Files</a> - how to define default parameter values for a taco workflow.</p>
 <h2 id="directory-rules">Directory <code>rules/</code><a class="headerlink" href="#directory-rules" title="Permanent link">&para;</a></h2>
 <p>The rules directory contains one folder per workflow.</p>
 <p>Each workflow folder must include a <code>Snakefile</code>.
