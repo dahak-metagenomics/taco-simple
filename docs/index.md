@@ -77,12 +77,17 @@ workflow `*.settings` file.
 
 ## `workflow-config` Directory
 
-The config files define the target files or rules for Snakemake to run.
+The `workflow-config` directory contains workflow 
+configuration files. These files contain the 
+target files or rules (defined in the workflow 
+Snakefile) that the user wishes to run.
 
 ## `workflow-params` Directory
 
-The parameter files define values for the workflow parameters 
-used to define the Snakemake rules.
+The `workflow-params` directory contains workflow
+parameter files. The workflow parameter file defines
+values for variables used in running the workflow
+rules.
 
 
 
