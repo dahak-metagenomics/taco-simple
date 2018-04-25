@@ -61,17 +61,19 @@ taco workflow1 \
 
 # Details
 
-## `rules/` Directory
+## Directory `rules/` 
 
 The rules directory contains one folder per workflow.
 
 Each workflow folder must include a `Snakefile`.
 It is recommended to structure Snakefiles so that 
-they import individual rule files. Individual rule
-files will use workflow parameters from the user's
-parameters file. If no parameter is defined, the default
-value, defined in the workflow's `*.settins` file, 
-will be used instead.
+they import individual rule files. 
+
+Individual rule files assemble rules using workflow 
+parameters. These parameters will come from the 
+user-defined parameters file. If no parameters value
+is defined, the default value will be used from the 
+workflow `*.settings` file.
 
 ## `workflow-config` Directory
 
