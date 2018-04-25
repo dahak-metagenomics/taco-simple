@@ -1,16 +1,31 @@
 # taco-simple
 
-A taco workflow repo to illustrate simple "hello world" workflow definitions. 
-
-This repository implements simple "Hello World" 
-Snakemake rules to define a [dahak-taco](https://github.com/dahak-metagenomics/dahak-taco)
+This repository implements several simple Snakemake workflows
+("hello world" style) to illustrate how to define a 
+[dahak-taco](https://github.com/dahak-metagenomics/dahak-taco)
 workflow.
 
+
+# Setting Up Taco
+
+Before you can run any of these workflows, you must first 
+install taco. See [dahak-taco documentation](https://dahak-metagenomics.github.io/dahak-taco)
+for installation instructions. (Should be as simple as
+`python setup.py install`.)
+
+Once taco is installed, it will be available on the 
+command line. The commands covered in this document
+should be run from the top level directory in 
+this repository.
 
 
 # Quick Start
 
 ## List Available Actions
+
+List the available workflows and rules 
+defined by the rule files for each 
+taco-simple workflow.
 
 ```
 taco ls             # List available workflows
@@ -23,8 +38,9 @@ taco ls workflow2   # List rules in workflow 2
 ## Run Workflow
 
 Include the `-n` flag to do a dry run first.
-Include the `--config-json` and `--params-json` 
-flags to point taco to the configuration and parameter
+
+taco requires the `--config-json` and `--params-json` 
+flags to point to the configuration and parameter
 JSON/YAML files.
 
 ```
@@ -52,8 +68,10 @@ The rules directory contains one folder per workflow.
 Each workflow folder must include a `Snakefile`.
 It is recommended to structure Snakefiles so that 
 they import individual rule files. Individual rule
-files then use workflow parameters from the parameters
-file the user passed in.
+files will use workflow parameters from the user's
+parameters file. If no parameter is defined, the default
+value, defined in the workflow's `*.settins` file, 
+will be used instead.
 
 ## `workflow-config` Directory
 
@@ -71,40 +89,4 @@ used to define the Snakemake rules.
 [dahak-taco documentation](https://dahak-metagenomics.github.io/dahak-taco/)
 
 [dahak-taco github repo](https://github.com/dahak-metagenomics/dahak-taco)
-
-[taco-simple github repo](https://github.com/dahak-metagenomics/taco-simple)
-
-
-
-## License
-
-BSD 3-Clause License
-
-Copyright (c) 2018, Charles Reid
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* Neither the name of the copyright holder nor the names of its
-  contributors may be used to endorse or promote products derived from
-  this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
