@@ -19,7 +19,7 @@ master_output = os.path.join(data_dir, master_file.format(config['file_extension
 
 rule master:
     """
-    Shell commands to say goodbye to <name>
+    Shell commands to say hello and goodbye to <name>
     """
     input:
         hello_file, goodbye_file
