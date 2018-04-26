@@ -1,0 +1,27 @@
+import os
+
+hello_file   = "hello.{}"
+
+data_dir = config['data_dir']
+
+
+# Process user parameters:
+#
+name = config['name']
+
+name_upper = name.upper()
+
+hello_output = os.path.join(data_dir, hello_file.format(config['file_extension']))
+
+rule hello_target:
+    """
+    Shell commands to say hello to <name>
+    """
+     output:
+        hello_output
+     run:
+        # if file-matching, process wildcards here
+        shell('''
+            echo goodbye {name_upper} > {hello_output}
+        ''')
+

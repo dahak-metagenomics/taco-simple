@@ -1,0 +1,28 @@
+import os
+
+hello_file   = "hello.{}"
+goodbye_file = "goodbye.{}"
+master_file  = "master.{}"
+
+data_dir = config['data_dir']
+
+
+# Process user parameters:
+
+name = config['name']
+
+name_upper = name.upper()
+
+hello_input   = os.path.join(data_dir, hello_file.format(config['file_extension']))
+goodbye_input = os.path.join(data_dir, goodbye_file.format(config['file_extension']))
+master_output = os.path.join(data_dir, master_file.format(config['file_extension']))
+
+rule master:
+    """
+    Shell commands to say goodbye to <name>
+    """
+    input:
+        hello_file, goodbye_file
+    output:
+        master_file
+

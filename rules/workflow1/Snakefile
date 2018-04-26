@@ -1,16 +1,5 @@
-message = config['message']
+include: "workflow1.settings"
+include: "hello.rule"
+include: "goodbye.rule"
+include: "master.rule"
 
-rule all:
-    """
-    Run every single rule.
-    """
-    input:
-        'message.txt'
-
-# A simple rule to write the message to the output
-rule message:
-    """
-    Write a simple message to a file, that's all.
-    """
-    output: 'message.txt'
-    shell: 'echo {message} > {output}'

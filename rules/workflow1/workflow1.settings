@@ -3,8 +3,8 @@ from snakemake.utils import update_config
 if(not config['clean']):
 
     config_default = {
-        "name" : "buzz",
-        "ext"  : "dat"
+        "name" : "buzz lightyear",
+        "file_extension" : "txt"
     }
 
     update_config(config_default, config)

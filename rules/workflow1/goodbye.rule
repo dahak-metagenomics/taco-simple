@@ -1,0 +1,27 @@
+import os
+
+goodbye_file = "goodbye.{}"
+
+data_dir = config['data_dir']
+
+
+# Process user parameters:
+
+name = config['name']
+
+name_upper = name.upper()
+
+goodbye_output = os.path.join(data_dir, goodbye_file.format(config['file_extension']))
+
+rule goodbye_target:
+    """
+    Shell commands to say goodbye to <name>
+    """
+     output:
+        goodbye_output
+     run:
+        # if file-matching, process wildcards here
+        shell('''
+            echo goodbye {name_upper} > {goodbye_output}
+        ''')
+
