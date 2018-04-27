@@ -1,0 +1,54 @@
+import os
+
+data_dir = config['data_dir']
+
+# This rule will compress 
+# a 1 MB block of raw data:
+#
+# {block_prefix}*.tar.gz
+#
+# block_prefix is a string.
+#
+# Example:
+#
+# config['block_prefix'] = "coolio_"
+#
+# Now a rule is defined for all the following:
+#
+# coolio_asdf.tar.gz
+# coolio_qwerty.tar.gz
+# coolio_olipo.tar.gz
+
+
+# This is the main user parameter
+block_prefix = config['block_prefix']
+
+# output
+targz_name = block_prefix + "{block_suffix}.tar.gz"
+compress_output_file = os.path.join(data_dir,targz_name)
+
+# input 
+block_name = block_prefix + "{block_suffix}.block"
+compress_input_file = os.path.join(data_dir,block_name)
+
+
+rule make_targz:
+    """
+    Use wildcard matching to compress
+    a 1 MB block of data 
+    """
+     input:
+        compress_input_file
+     output:
+        compress_output_file
+     run:
+        # Replace wildcards with their 
+        # actual values
+        compress_output_file_wc = compress_output_file.format(**wildcards)
+        compress_input_file_wc  = compress_input_file.format(**wildcards)
+
+        # Compress and clean up in one swoop
+        shell('''
+            tar czf {compress_output_file_wc} {compress_input_file_wc} 
+        ''')
+

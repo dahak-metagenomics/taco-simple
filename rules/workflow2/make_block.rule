@@ -1,0 +1,60 @@
+import os
+
+data_dir = config['data_dir']
+
+# This rule will generate
+# a 1 MB block of raw data:
+#
+# {block_prefix}*.block
+# 
+# The user should provide a string
+# value for block_prefix.
+# For example, if the user set the
+# block prefix in their config file
+# to be the following:
+#
+# config['block_prefix'] = "coolio_"
+# 
+# then the user could ask for 
+# any of the following files 
+# and this rule would match:
+#
+# coolio_asdf.block
+# coolio_qwerty.block
+# coolio_olipo.block
+#
+# This is a little more complicated
+# than simply matching a single 
+# hard-coded filename provided 
+# by the user, as we'll see in 
+# the run: directive.
+# 
+# Get the prefix of the block file name
+block_prefix = config['block_prefix']
+
+# Get the suffix of the block file name
+ext = ".block"
+block_name = block_prefix + "{block_suffix}" + ext
+
+# Assemble the full output file location
+block_output_file = os.path.join(data_dir,block_name)
+
+
+rule make_block:
+    """
+    Use wildcard matching to make 
+    a 1 MB block of data 
+    """
+    output:
+        block_output_file
+    run:
+        # Now run one additional step, replacing 
+        # any wildcards in the output_file name
+        # with the actual matched value of the 
+        # wildcard
+        block_output_file_wc = block_output_file.format(**wildcards)
+
+        shell('''
+            dd if=/dev/urandom of={block_output_file_wc} bs=1048576 count=10
+        ''')
+

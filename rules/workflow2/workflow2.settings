@@ -1,0 +1,10 @@
+from snakemake.utils import update_config
+
+if(not config['clean']):
+
+    config_default = {
+        "block_prefix" : "coolio_"
+    }
+
+    update_config(config_default, config)
+    config = config_default

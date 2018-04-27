@@ -1,0 +1,2 @@
+description: "Compression Workflow for taco: Configuration"
+workflow_targets: "data/foolio_asdf.tar.gz"
