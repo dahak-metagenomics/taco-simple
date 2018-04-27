@@ -1,2 +1,3 @@
 description: "Simple Simon's Simple Workflow for taco: Parameters"
-block_prefix: "foolio_"
+name: "simple simon"
+extension: "foo"
