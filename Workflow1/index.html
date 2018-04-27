@@ -495,19 +495,29 @@ workflow target like <code>hello.txt</code> (note that this
 requires you set the extension to "txt", see next 
 section).</p>
 <p><strong>YAML:</strong></p>
-<div class="codehilite"><pre><span></span>workflow_targets: &quot;
+<div class="codehilite"><pre><span></span>workflow_targets: &quot;goodbye.txt&quot;
 </pre></div>
 
 
+<p>or as a list:</p>
+<div class="codehilite"><pre><span></span>workflow_targets: 
+  - &quot;hello.txt&quot;
+  - &quot;goodbye.txt&quot;
+</pre></div>
+
+
+<p>(Note that this rule, as structured, does not do wildcards - 
+that's left for <a href="../Workflow3/">Workflow 3</a> - so we must specify
+the extension ".txt" in our workflow parameters file.</p>
 <h2 id="workflow-parameters">Workflow Parameters<a class="headerlink" href="#workflow-parameters" title="Permanent link">&para;</a></h2>
 <p>The user defines two keys:</p>
 <ul>
 <li><code>name</code> - the name to print to the file</li>
 <li><code>file_extension</code> - the extension to use for the hello/goodbye files being created</li>
 </ul>
-<p>Here is the default paramter dictionary 
+<p>Here is the default paramter dictionary
 defined in <code>workflow1.settings</code>:</p>
-<div class="codehilite"><pre><span></span>    config_default = {
+<div class="codehilite"><pre><span></span>    {
         &quot;name&quot; : &quot;buzz lightyear&quot;,
         &quot;file_extension&quot; : &quot;txt&quot;
     }
