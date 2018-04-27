@@ -81,9 +81,20 @@ section).
 **YAML:**
 
 ```text
-workflow_targets: "
+workflow_targets: "goodbye.txt"
 ```
 
+or as a list:
+
+```text
+workflow_targets: 
+  - "hello.txt"
+  - "goodbye.txt"
+```
+
+(Note that this rule, as structured, does not do wildcards - 
+that's left for [Workflow 3](Workflow3.md) - so we must specify
+the extension ".txt" in our workflow parameters file.
 
 ## Workflow Parameters
 
@@ -92,11 +103,11 @@ The user defines two keys:
 * `name` - the name to print to the file
 * `file_extension` - the extension to use for the hello/goodbye files being created
 
-Here is the default paramter dictionary 
+Here is the default paramter dictionary
 defined in `workflow1.settings`:
 
 ```text
-    config_default = {
+    {
         "name" : "buzz lightyear",
         "file_extension" : "txt"
     }
