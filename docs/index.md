@@ -21,16 +21,16 @@ should be run from the main workflow repository directory.
 
 Workflow files:
 
-* rules
-* workflow-config
-* workflow-params
-* docker
+* `rules/` - contains rule and workflow definitions
+* `workflow-config/` - contains workflow configuration files
+* `workflow-params/` - contains workflow parameter files
+* `docker/` - contains custom Docker images for use in taco workflows
 
 Documentation files:
 
-* docs
-* mkdocs-material-dib
-* mkdocs.yml
+* `docs/` - contains the documentation files (i.e., the document you're reading now)
+* `mkdocs.yml` - configuration file for mkdocs, the documentation generator used by this repo
+* `mkdocs-material-dib/` - git submodule containing mkdocs theme
 
 
 ## Workflows

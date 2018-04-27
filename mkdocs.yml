@@ -39,6 +39,7 @@ pages:
   - 'Workflow 1' : 'Workflow1.md'
   - 'Workflow 2' : 'Workflow2.md'
   - 'Workflow 3' : 'Workflow3.md'
+  - 'Workflow 4' : 'Workflow4.md'
 
 # Extensions
 markdown_extensions:

@@ -11,20 +11,20 @@ set output file names.
 
 To list available workflows:
 
-```
+```text
 $ taco ls
 ```
 
 To get rules defined by a particular workflow:
 
-```
+```text
 $ taco ls workflow1
 ```
 
 To run the workflow, use the included workflow configuration
 and parameter files:
 
-```
+```text
 $ taco workflow1 \
     --config-yaml=workflow-config/workflow1_config_simple.yaml \
     --params-yaml=workflow-params/workflow1_params_simple.yaml 
@@ -33,7 +33,7 @@ $ taco workflow1 \
 By default, this will generate output files in the `data/` directory.
 To change the output directory, use the `--prefix` flag:
 
-```
+```text
 $ taco --prefix=my_data \
     workflow1 \
     --config-yaml=workflow-config/workflow1_config_simple.yaml \
@@ -54,15 +54,46 @@ hello_target
 goodbye_target
 
     Shell commands to say goodbye to <name>
+```
 
+The two rules above are just echoing text to a file.
+
+```text
 master
 
     Shell commands to say hello and goodbye to <name>
 ```
 
+This is a master rule that runs the two other rules
+by requiring their output files.
+
+
+## Workflow Configuration
+
+The output files of the above rules are simple
+and hard-coded: `hello.{ext}` and `goodbye.{ext}`
+
+In the workflow configuration file, specify a
+workflow target like `hello.txt` (note that this
+requires you set the extension to "txt", see next 
+section).
+
+**YAML:**
+
+```text
+workflow_targets: "
+```
+
+
 ## Workflow Parameters
 
-Default parameter dictionary defined in `workflow1.settings`:
+The user defines two keys:
+
+* `name` - the name to print to the file
+* `file_extension` - the extension to use for the hello/goodbye files being created
+
+Here is the default paramter dictionary 
+defined in `workflow1.settings`:
 
 ```text
     config_default = {
