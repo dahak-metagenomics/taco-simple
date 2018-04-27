@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "taco-simple\n\u00b6\n\n\nThis repository implements several simple Snakemake workflows\n(\"hello world\" style) to illustrate how to define a \n\ndahak-taco\n\nworkflow.\n\n\nSetting Up Taco\n\u00b6\n\n\nBefore you can run any of these workflows, you must first \ninstall \ntaco\n. See \ndahak-taco documentation\n\nfor installation instructions.\n\n\nOnce \ntaco\n is installed, it will be available on the \ncommand line. The \ntaco\n commands covered in this document\nshould be run from the main workflow repository directory. \n\n\nWhat's In This Repository\n\u00b6\n\n\nWorkflow files:\n\n\n\n\nrules\n\n\nworkflow-config\n\n\nworkflow-params\n\n\ndocker\n\n\n\n\nDocumentation files:\n\n\n\n\ndocs\n\n\nmkdocs-material-dib\n\n\nmkdocs.yml\n\n\n\n\nWorkflows\n\u00b6\n\n\nList of workflows:\n\n\nWorkflow 1\n - illustrates how to modify user parameters\n    and use them to assemble input/output names.\n\n\nWorkflow 2\n - illustrates how to modify user parameters\n    and use wildcards to assemble input/output names.\n\n\nWorkflow 3\n - illustrates how to use custom Docker images\n    as part of a \ntaco\n workflow.",
+            "text": "taco-simple\n\u00b6\n\n\nThis repository implements several simple Snakemake workflows\n(\"hello world\" style) to illustrate how to define a \n\ndahak-taco\n\nworkflow.\n\n\nSetting Up Taco\n\u00b6\n\n\nBefore you can run any of these workflows, you must first \ninstall \ntaco\n. See \ndahak-taco documentation\n\nfor installation instructions.\n\n\nOnce \ntaco\n is installed, it will be available on the \ncommand line. The \ntaco\n commands covered in this document\nshould be run from the main workflow repository directory. \n\n\nWhat's In This Repository\n\u00b6\n\n\nWorkflow files:\n\n\n\n\nrules/\n - contains rule and workflow definitions\n\n\nworkflow-config/\n - contains workflow configuration files\n\n\nworkflow-params/\n - contains workflow parameter files\n\n\ndocker/\n - contains custom Docker images for use in taco workflows\n\n\n\n\nDocumentation files:\n\n\n\n\ndocs/\n - contains the documentation files (i.e., the document you're reading now)\n\n\nmkdocs.yml\n - configuration file for mkdocs, the documentation generator used by this repo\n\n\nmkdocs-material-dib/\n - git submodule containing mkdocs theme\n\n\n\n\nWorkflows\n\u00b6\n\n\nList of workflows:\n\n\nWorkflow 1\n - illustrates how to modify user parameters\n    and use them to assemble input/output names.\n\n\nWorkflow 2\n - illustrates how to modify user parameters\n    and use wildcards to assemble input/output names.\n\n\nWorkflow 3\n - (in progress) illustrates how to use custom Docker images\n    as part of a \ntaco\n workflow.\n\n\nWorkflow 4\n - (in progress) illustrates how to use the \n--clean\n \n    option to check parameters dictionary",
             "title": "Index"
         },
         {
@@ -17,17 +17,17 @@
         },
         {
             "location": "/#whats-in-this-repository",
-            "text": "Workflow files:   rules  workflow-config  workflow-params  docker   Documentation files:   docs  mkdocs-material-dib  mkdocs.yml",
+            "text": "Workflow files:   rules/  - contains rule and workflow definitions  workflow-config/  - contains workflow configuration files  workflow-params/  - contains workflow parameter files  docker/  - contains custom Docker images for use in taco workflows   Documentation files:   docs/  - contains the documentation files (i.e., the document you're reading now)  mkdocs.yml  - configuration file for mkdocs, the documentation generator used by this repo  mkdocs-material-dib/  - git submodule containing mkdocs theme",
             "title": "What's In This Repository"
         },
         {
             "location": "/#workflows",
-            "text": "List of workflows:  Workflow 1  - illustrates how to modify user parameters\n    and use them to assemble input/output names.  Workflow 2  - illustrates how to modify user parameters\n    and use wildcards to assemble input/output names.  Workflow 3  - illustrates how to use custom Docker images\n    as part of a  taco  workflow.",
+            "text": "List of workflows:  Workflow 1  - illustrates how to modify user parameters\n    and use them to assemble input/output names.  Workflow 2  - illustrates how to modify user parameters\n    and use wildcards to assemble input/output names.  Workflow 3  - (in progress) illustrates how to use custom Docker images\n    as part of a  taco  workflow.  Workflow 4  - (in progress) illustrates how to use the  --clean  \n    option to check parameters dictionary",
             "title": "Workflows"
         },
         {
             "location": "/Workflow1/",
-            "text": "Workflow 1\n\u00b6\n\n\nGoal\n\u00b6\n\n\nWorkflow 1 illustrates the use of user parameters.\nSpecifically, we modify the name parameter to make it \nuppercase, and use the extension parameter to \nset output file names.\n\n\nQuick Start\n\u00b6\n\n\nTo list available workflows:\n\n\n$ taco ls\n\n\n\n\n\nTo get rules defined by a particular workflow:\n\n\n$ taco ls workflow1\n\n\n\n\n\nTo run the workflow, use the included workflow configuration\nand parameter files:\n\n\n$ taco workflow1 \\\n    --config-yaml=workflow-config/workflow1_config_simple.yaml \\\n    --params-yaml=workflow-params/workflow1_params_simple.yaml \n\n\n\n\n\nBy default, this will generate output files in the \ndata/\n directory.\nTo change the output directory, use the \n--prefix\n flag:\n\n\n$ taco --prefix=my_data \\\n    workflow1 \\\n    --config-yaml=workflow-config/workflow1_config_simple.yaml \\\n    --params-yaml=workflow-params/workflow1_params_simple.yaml \n\n\n\n\n\nIf the directory does not exist, it will be created.\n\n\nWorkflow Rules\n\u00b6\n\n\nOutput of \ntaco ls workflow1\n: \n\n\nhello_target\n\n    Shell commands to say hello to <name>\n\ngoodbye_target\n\n    Shell commands to say goodbye to <name>\n\nmaster\n\n    Shell commands to say hello and goodbye to <name>\n\n\n\n\n\nWorkflow Parameters\n\u00b6\n\n\nDefault parameter dictionary defined in \nworkflow1.settings\n:\n\n\n    config_default = {\n        \"name\" : \"buzz lightyear\",\n        \"file_extension\" : \"txt\"\n    }",
+            "text": "Workflow 1\n\u00b6\n\n\nGoal\n\u00b6\n\n\nWorkflow 1 illustrates the use of user parameters.\nSpecifically, we modify the name parameter to make it \nuppercase, and use the extension parameter to \nset output file names.\n\n\nQuick Start\n\u00b6\n\n\nTo list available workflows:\n\n\n$ taco ls\n\n\n\n\n\nTo get rules defined by a particular workflow:\n\n\n$ taco ls workflow1\n\n\n\n\n\nTo run the workflow, use the included workflow configuration\nand parameter files:\n\n\n$ taco workflow1 \\\n    --config-yaml=workflow-config/workflow1_config_simple.yaml \\\n    --params-yaml=workflow-params/workflow1_params_simple.yaml \n\n\n\n\n\nBy default, this will generate output files in the \ndata/\n directory.\nTo change the output directory, use the \n--prefix\n flag:\n\n\n$ taco --prefix=my_data \\\n    workflow1 \\\n    --config-yaml=workflow-config/workflow1_config_simple.yaml \\\n    --params-yaml=workflow-params/workflow1_params_simple.yaml \n\n\n\n\n\nIf the directory does not exist, it will be created.\n\n\nWorkflow Rules\n\u00b6\n\n\nOutput of \ntaco ls workflow1\n: \n\n\nhello_target\n\n    Shell commands to say hello to <name>\n\ngoodbye_target\n\n    Shell commands to say goodbye to <name>\n\n\n\n\n\nThe two rules above are just echoing text to a file.\n\n\nmaster\n\n    Shell commands to say hello and goodbye to <name>\n\n\n\n\n\nThis is a master rule that runs the two other rules\nby requiring their output files.\n\n\nWorkflow Configuration\n\u00b6\n\n\nThe output files of the above rules are simple\nand hard-coded: \nhello.{ext}\n and \ngoodbye.{ext}\n\n\nIn the workflow configuration file, specify a\nworkflow target like \nhello.txt\n (note that this\nrequires you set the extension to \"txt\", see next \nsection).\n\n\nYAML:\n\n\nworkflow_targets: \"\n\n\n\n\n\nWorkflow Parameters\n\u00b6\n\n\nThe user defines two keys:\n\n\n\n\nname\n - the name to print to the file\n\n\nfile_extension\n - the extension to use for the hello/goodbye files being created\n\n\n\n\nHere is the default paramter dictionary \ndefined in \nworkflow1.settings\n:\n\n\n    config_default = {\n        \"name\" : \"buzz lightyear\",\n        \"file_extension\" : \"txt\"\n    }",
             "title": "Workflow 1"
         },
         {
@@ -47,12 +47,17 @@
         },
         {
             "location": "/Workflow1/#workflow-rules",
-            "text": "Output of  taco ls workflow1 :   hello_target\n\n    Shell commands to say hello to <name>\n\ngoodbye_target\n\n    Shell commands to say goodbye to <name>\n\nmaster\n\n    Shell commands to say hello and goodbye to <name>",
+            "text": "Output of  taco ls workflow1 :   hello_target\n\n    Shell commands to say hello to <name>\n\ngoodbye_target\n\n    Shell commands to say goodbye to <name>  The two rules above are just echoing text to a file.  master\n\n    Shell commands to say hello and goodbye to <name>  This is a master rule that runs the two other rules\nby requiring their output files.",
             "title": "Workflow Rules"
         },
         {
+            "location": "/Workflow1/#workflow-configuration",
+            "text": "The output files of the above rules are simple\nand hard-coded:  hello.{ext}  and  goodbye.{ext}  In the workflow configuration file, specify a\nworkflow target like  hello.txt  (note that this\nrequires you set the extension to \"txt\", see next \nsection).  YAML:  workflow_targets: \"",
+            "title": "Workflow Configuration"
+        },
+        {
             "location": "/Workflow1/#workflow-parameters",
-            "text": "Default parameter dictionary defined in  workflow1.settings :      config_default = {\n        \"name\" : \"buzz lightyear\",\n        \"file_extension\" : \"txt\"\n    }",
+            "text": "The user defines two keys:   name  - the name to print to the file  file_extension  - the extension to use for the hello/goodbye files being created   Here is the default paramter dictionary \ndefined in  workflow1.settings :      config_default = {\n        \"name\" : \"buzz lightyear\",\n        \"file_extension\" : \"txt\"\n    }",
             "title": "Workflow Parameters"
         },
         {
@@ -114,6 +119,11 @@
             "location": "/Workflow3/#workflow-parameters",
             "text": "Default parameter dictionary defined in  workflow3.settings :",
             "title": "Workflow Parameters"
+        },
+        {
+            "location": "/Workflow4/",
+            "text": "",
+            "title": "Workflow 4"
         }
     ]
 }
