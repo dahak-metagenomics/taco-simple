@@ -30,6 +30,14 @@ $ taco workflow1 \
     --params-yaml=workflow-params/workflow1_params_simple.yaml 
 ```
 
+or,
+
+```text
+$ taco workflow1 \
+    --config-yaml=my-workflow-files/config.yaml \
+    --params-yaml=my-workflow-files/params.yaml 
+```
+
 By default, this will generate output files in the `data/` directory.
 To change the output directory, use the `--prefix` flag:
 
