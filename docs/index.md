@@ -19,12 +19,17 @@ should be run from the main workflow repository directory.
 
 ## What's In This Repository
 
+Required directories:
+
+* `rules/` - contains rule and workflow definitions (REQUIRED)
+
 Workflow files:
 
-* `rules/` - contains rule and workflow definitions
 * `workflow-config/` - contains workflow configuration files
 * `workflow-params/` - contains workflow parameter files
 * `docker/` - contains custom Docker images for use in taco workflows
+* `my-workflow-files/` - directory containing config/param/docker files 
+    that should be kept together
 
 Documentation files:
 
