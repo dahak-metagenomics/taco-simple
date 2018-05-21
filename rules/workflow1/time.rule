@@ -1,0 +1,25 @@
+import os
+
+time_file   = "time.{}"
+
+data_dir = config['data_dir']
+
+
+# Process user parameters:
+#
+name = config['name']
+
+time_output = os.path.join(data_dir, time_file.format(config['file_extension']))
+
+rule hello_target:
+    """
+    Shell commands to ask <name> for the time
+    """
+     output:
+        time_output
+     run:
+        # if file-matching, process wildcards here
+        shell('''
+            echo Pardon me {name} but I was wondering if you have the time because I have lost my bloody watch > {time_output}
+        ''')
+

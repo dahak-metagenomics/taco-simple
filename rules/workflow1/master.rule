@@ -1,6 +1,7 @@
 import os
 
 hello_file   = "hello.{}"
+time_file    = "time.{}"
 goodbye_file = "goodbye.{}"
 master_file  = "master.{}"
 
@@ -14,15 +15,16 @@ name = config['name']
 name_upper = name.upper()
 
 hello_input   = os.path.join(data_dir, hello_file.format(config['file_extension']))
+time_input    = os.path.join(data_dir, time_file.format(config['file_extension']))
 goodbye_input = os.path.join(data_dir, goodbye_file.format(config['file_extension']))
 master_output = os.path.join(data_dir, master_file.format(config['file_extension']))
 
-rule master:
+rule everything:
     """
-    Shell commands to say hello and goodbye to <name>
+    (ghost rule)
+    Shell commands to do everything: say hello,
+    ask for the time, and say goodbye to <name>.
     """
     input:
         hello_file, goodbye_file
-    output:
-        master_file
 

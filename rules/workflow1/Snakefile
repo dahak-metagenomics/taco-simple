@@ -1,5 +1,6 @@
 include: "workflow1.settings"
 include: "hello.rule"
+include: "time.rule"
 include: "goodbye.rule"
 include: "master.rule"
 
